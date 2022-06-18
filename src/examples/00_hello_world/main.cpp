@@ -1,7 +1,37 @@
 #include<iostream>
 
 int main()
-{
-    std::cout<<"Hello World!";
-    return 0;
-}
+
+  void function1( int & num );
+
+ 
+ 
+   void function1( int & num )
+ 
+   {
+ 
+       num = 10;
+ 
+   }
+ 
+   //main.cpp 
+  
+ 
+  
+ 
+   int 
+    main() 
+ 
+   {
+ 
+        
+   int 
+    num = 1;
+
+    function1(num);
+ 
+       cout<<num;
+
+     return  0;
+ 
+   }
