@@ -38,8 +38,8 @@ int main()
 		cin >> choice;
 
 	}while (choice == "yes");
-	
 	cout << "The cumulative G.P.A. is:" << calculate_gpa (credit_hours, credit_points) << endl;
+	
 	cout << "Total credit points:" << credit_points << endl;
 	cout << "Total credit hours:" << credit_hours << endl;
 
