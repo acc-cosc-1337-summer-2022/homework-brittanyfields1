@@ -8,12 +8,9 @@ int main()
 {
 	double credit_hours = 0;
 	double credit_points = 0;
-
 	string letter_grade = "";
 	int hours;
-
 	string choice = "no";
-
 	display_menu();
 
 	do
@@ -39,12 +36,7 @@ int main()
 
 	}while (choice == "yes");
 	cout << "The cumulative G.P.A. is:" << calculate_gpa (credit_hours, credit_points) << endl;
-	
 	cout << "Total credit points:" << credit_points << endl;
 	cout << "Total credit hours:" << credit_hours << endl;
-
-
-
-
 	return 0;
 }

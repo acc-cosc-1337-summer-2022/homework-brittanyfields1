@@ -15,7 +15,7 @@ int main()
     	cout <<"Enter tip rate:";	
 		cin >> tip_rate;
 
-	double tip_amount ;
+	double tip_amount;
 
 	double tax_amount;
 
