@@ -29,3 +29,63 @@ TEST_CASE ("Test if the board is full")
 
 	REQUIRE(game.game_over()== true);
 }
+
+TEST_CASE ("Test first player set to X")
+{
+	TicTacToe game;
+	game.start_game("X");
+
+TEST_CASE ("")
+	REQUIRE(game.get_player() == "X")
+	REQUIRE(game.get_player)
+}
+
+TEST_CASE ("Test win by first column")
+{
+	TicTacToe game;
+	REQUIRE(game.check_column_win(0, 1, 2))
+	REQUIRE(game.check_column_win()== false);
+
+}
+TEST_CASE ("Test win by second column")
+{
+	TicTacToe game;
+	REQUIRE(game.start_game("X"))
+	REQUIRE(game.check_column_win()== true);
+}
+TEST_CASE ("Test win by third column ")
+{
+	TicTacToe game;
+	REQUIRE(game.start_game("X"))
+	REQUIRE(game.check_column_win()== true);
+}
+TEST_CASE ("Test win by first row ")
+{
+	TicTacToe game;
+	REQUIRE(game.start_game("X"))
+	REQUIRE(game.check_row_win() == true);
+}
+TEST_CASE ("Test win by second row ")
+{
+	TicTacToe game;
+	REQUIRE(game.start_game("X"))
+	REQUIRE(game.check_row_win()== true);
+}
+TEST_CASE ("Test win by third row ")
+{
+	TicTacToe game;
+	REQUIRE(game.start_game("X"))
+	REQUIRE(game.check_row_win()== true);
+}
+TEST_CASE ("Test win diagonally from top left")
+{
+	TicTacToe game;
+	REQUIRE(game.start_game("X"))
+	REQUIRE(game.start_game()== true);
+}
+TEST_CASE ("Test win diagonally from bottom left")
+{
+	TicTacToe game;
+	REQUIRE(game.start_game("X"))
+	REQUIRE(game.start_game()== true);
+}

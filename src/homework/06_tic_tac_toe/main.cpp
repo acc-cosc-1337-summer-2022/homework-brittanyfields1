@@ -28,6 +28,7 @@ int main()
 		}
 		cout<<"Play again, enter y or Y";
 		cin>>user_choice;
+		
 	
 	}while(user_choice == 'y' || user_choice == 'Y');
 
