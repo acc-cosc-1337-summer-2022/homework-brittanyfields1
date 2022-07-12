@@ -25,6 +25,11 @@ int main()
 			cin>>position;
 			game.mark_board(position);
 			game.display_board();
+			while (position < 1 || position > 9) {
+                cout << "Invalid position. Enter position 1-9"<<endl;
+                cout << "Enter a position: ";
+                cin >> position;
+            }
 		}
 		cout<<"Play again, enter y or Y";
 		cin>>user_choice;
