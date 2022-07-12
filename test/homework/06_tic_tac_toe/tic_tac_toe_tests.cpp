@@ -28,6 +28,7 @@ TEST_CASE ("Test if the board is full")
 	game.mark_board(8);
 
 	REQUIRE(game.game_over()== true);
+	REQUIRE(game.get_winner() == "C");
 }
 
 TEST_CASE ("Test first player set to X")
@@ -35,6 +36,7 @@ TEST_CASE ("Test first player set to X")
 	TicTacToe game;
 	game.start_game("X");
 	REQUIRE(game.get_player() == "X");
+	
 }
 
 TEST_CASE("Test first player set to O")

@@ -5,6 +5,7 @@
 using std::cout; 
 using std::cin;
 using std::string;
+using std::endl;
 
 int main() 
 {
@@ -39,11 +40,11 @@ int main()
 		}
 		if( game.get_winner() == "X" || game.get_winner() == "O")
 			{
-			cout<<game.get_winner() <<" WINS!!! "<<"\n" ;
+			cout<<game.get_winner() <<" Won the game!!! "<<"\n" ;
 			}
 		else
 		{
-			cout<<"Draw! No Winner!\n";
+			cout<<"Tie! No Winner!\n";
 		}
 		
 		
