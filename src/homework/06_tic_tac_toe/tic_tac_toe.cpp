@@ -5,10 +5,20 @@ using std::cout;
 
 bool TicTacToe::game_over()
 {
-    if (check_board_full() || check_column_win()||
-        check_diagonal_win()||check_row_win())
+    if(check_column_win() || check_row_win() || check_diagonal_win()) 
+    {
+        set_winner(); 
         return true;
-    return false;
+    }
+    else if (check_board_full()) 
+    {
+        winner = "C"; 
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 void TicTacToe::start_game(std::string first_player)

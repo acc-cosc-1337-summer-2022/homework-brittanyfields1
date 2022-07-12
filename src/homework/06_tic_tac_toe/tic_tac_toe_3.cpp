@@ -9,10 +9,7 @@ Win by column if and return true if
 else
 false
 */
-bool TicTacToe :: check_column_win()
-{
-   if (pegs[0]) 
-}
+
 
 
 
@@ -23,10 +20,6 @@ Win by row if
 3,4,5 are equal
 6,7,8 are equal
 */
-bool check_row_win()
-{
-
-}
 
 
 /*
@@ -37,7 +30,3 @@ Win diagonally
 6 7 8
 
 */
-bool check_diagonal_win()
-{
-   
-}

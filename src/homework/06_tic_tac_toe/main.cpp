@@ -16,6 +16,12 @@ int main()
 	{
 		cout<<"Enter first_player: ";
 		cin>>first_player;
+		while(first_player != "X" && first_player != "O")
+		{
+			cout<<"\nInvalid Entry! Enter first player X or O: ";
+			cin>>first_player;
+		}
+		
 		game.start_game(first_player);
 		int position;
 		
@@ -31,11 +37,27 @@ int main()
                 cin >> position;
             }
 		}
-		cout<<"Play again, enter y or Y";
-		cin>>user_choice;
+		if( game.get_winner() == "X" || game.get_winner() == "O")
+			{
+			cout<<game.get_winner() <<" WINS!!! "<<"\n" ;
+			}
+		else
+		{
+			cout<<"Draw! No Winner!\n";
+		}
 		
+		
+		cout<<"Play again? Enter Y or N: ";
+		cin>>user_choice;
+		while(user_choice != 'Y' && user_choice != 'y' && user_choice != 'N' && user_choice != 'n')
+        {
+            cout<<"Invalid choice! Type 'Y' to play again or 'N' to end program: ";
+            cin>>user_choice;
+        }
+		
+	} while (user_choice == 'y' || user_choice == 'Y');
 	
-	}while(user_choice == 'y' || user_choice == 'Y');
-
 	return 0;
 }
+
+		
