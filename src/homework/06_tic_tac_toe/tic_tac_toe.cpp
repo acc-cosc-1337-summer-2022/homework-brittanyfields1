@@ -42,11 +42,23 @@ void TicTacToe::mark_board(int position)
 
 void TicTacToe::display_board() const
 {
-    for (long unsigned int i=0; i<pegs.size(); i+=3)
-    {
-        cout<<pegs[i]<<"|"<<pegs[i+1]<<"|"<<pegs[i+2]<<"\n";
-        
+    if (pegs.size() == 9)
+    { 
+    //displays tictactoe row by row
+        for (long unsigned int i=0; i<pegs.size(); i+=3)
+        {
+            cout<<pegs[i]<<"|"<<pegs[i+1]<<"|"<<pegs[i+2]<<"\n";
+        }
     }
+        //how can i use pegs to determine which one to display
+    else if (pegs.size() == 16)
+    {
+        for (long unsigned int i=0; i<pegs.size(); i+=4)
+        {
+            cout<<pegs[i]<<"|"<<pegs[i+1]<<"|"<<pegs[i+2]<< "|" <<[i+3]<< "\n";
+        }
+    }
+
 }
 
 //private functions
