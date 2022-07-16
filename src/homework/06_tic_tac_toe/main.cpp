@@ -1,6 +1,7 @@
 #include "tic_tac_toe.h"
 #include <iostream>
 #include<string>
+#include<memory>
 
 using std::cout; 
 using std::cin;
@@ -12,11 +13,33 @@ int main()
 	TicTacToe game;
 	string first_player;
 	char user_choice = 'y';
-// this is some change made
-//second change
+	unique_ptr<TicTacToe> game;
+	int board_choice;
+
+	
 
 	do
 	{
+		cout << "Welcome to Tic Tac Toe" <<endl;
+		cout << "Enter 3 to play 3x3" << endl;
+		cout << "Enter 4 to play 4x4" << endl;
+		cin >> board_choice;
+		
+		
+		while (!board_choice == 3 && board_choice == 4)
+		{
+			cout << "Invalid choice. Enter 3 to play 3x3 or enter 4 to play 4x4:"<<endl;
+			cin <<board_choice;
+
+		if (board_choice == 3)
+		{
+			game = new tictactoe3;
+		}
+		else
+		{
+			game = new tictactoe4;
+		}
+
 		cout<<"Enter first_player: ";
 		cin>>first_player;
 		while(first_player != "X" && first_player != "O")
