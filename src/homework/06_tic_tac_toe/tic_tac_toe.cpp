@@ -1,10 +1,23 @@
 //cpp
 #include "tic_tac_toe.h"
+#include<string>
+#include<memory>
+#include <iostream>
 
+using std::endl;
 using std::cout;
+using std::cin;
+using std::string;
+using std::unique_ptr;
+using std::make_unique;
+
+
+void play_game3();
+void play_game4();
+
 //pegs is a vector
 //size is parameter that will pass the number of pegs user wants
-TicTacToe :: TicTacToe(int size){
+TicTacToe::TicTacToe(int size){
     for(int i=0; i<size*size; i++){
         pegs.push_back(" ");
     }
@@ -38,6 +51,7 @@ void TicTacToe::mark_board(int position)
 {
     pegs[position-1] = player;
     set_next_player();
+
 }
 
 void TicTacToe::display_board() const
@@ -75,9 +89,7 @@ void TicTacToe::set_next_player()
     if (player == "X")
         player = "O";
     else
-    {
         player = "X";
-    }
 }
 
 bool TicTacToe::check_board_full()
@@ -94,6 +106,10 @@ bool TicTacToe::check_board_full()
 
 
 void TicTacToe :: set_winner()
-    {
-        winner = player;
-    }
+{
+    if (player == "X")
+        winner = "O";
+    else
+        winner = "X";
+
+}

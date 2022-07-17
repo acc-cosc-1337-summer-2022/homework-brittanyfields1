@@ -20,7 +20,7 @@ public:
     std::string get_player() const{return player;}
     void display_board() const;
     std::string get_winner() const{return winner;}
-    TicTacToe(int size):pegs(size*size, " " ){};
+    TicTacToe(int size);
 private:
     std::string player;
     void clear_board();
@@ -33,3 +33,4 @@ private:
 };
 
 #endif
+
