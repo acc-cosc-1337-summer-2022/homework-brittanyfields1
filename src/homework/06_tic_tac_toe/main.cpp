@@ -12,6 +12,7 @@ int main()
 {
 	TicTacToe game;
 	string first_player;
+	string winner;
 	char user_choice = 'y';
 	unique_ptr<TicTacToe> game;
 	int board_choice;
@@ -33,40 +34,61 @@ int main()
 
 		if (board_choice == 3)
 		{
-			game = new tictactoe3;
-		}
-		else
-		{
-			game = new tictactoe4;
-		}
-
-		cout<<"Enter first_player: ";
-		cin>>first_player;
-		while(first_player != "X" && first_player != "O")
-		{
-			cout<<"\nInvalid Entry! Enter first player X or O: ";
+			unique_ptr<TicTacToe> game = make_unique<tictactoe3>();
+			cout<<"Enter first_player: ";
 			cin>>first_player;
-		}
-		
-		game.start_game(first_player);
-		int position;
-		
-		while(!game.game_over())
-		{
-			cout<<"Enter a position: ";
-			cin>>position;
-			game.mark_board(position);
-			game.display_board();
-			while (position < 1 || position > 9) {
-                cout << "Invalid position. Enter position 1-9"<<endl;
-                cout << "Enter a position: ";
-                cin >> position;
-            }
-		}
-		if( game.get_winner() == "X" || game.get_winner() == "O")
+			while(first_player != "X" && first_player != "O")
 			{
-			cout<<game.get_winner() <<" Won the game!!! "<<"\n" ;
+				cout<<"\nInvalid Entry! Enter first player X or O: ";
+				cin>>first_player;
 			}
+			game->start_game(first_player);
+			int position;
+		
+			while(!game->game_over())
+			{
+				cout<<"Enter a position: ";
+				cin>>position;
+				game->mark_board(position);
+				game->display_board();
+		
+				while (position < 1 || position > 9) 
+				{
+                			cout << "Invalid position. Enter position 1-9"<<endl;
+                			cout << "Enter a position: ";
+                			cin >> position;
+            		}
+			}
+		else if (board_choice == 4)
+		{
+			unique_ptr<TicTacToe> game = make_unique<tictactoe4>();
+			cout<<"Enter first_player: ";
+			cin>>first_player;
+			while(first_player != "X" && first_player != "O")
+			{
+				cout<<"\nInvalid Entry! Enter first player X or O: ";
+				cin>>first_player;
+			}
+			game->start_game(first_player);
+			int position;
+		
+			while(!game->game_over())
+			{
+				cout<<"Enter a position: ";
+				cin>>position;
+				game->mark_board(position);
+				game->display_board();
+		
+				while (position < 1 || position > 16) 
+				{
+                			cout << "Invalid position. Enter position 1-9"<<endl;
+                			cout << "Enter a position: ";
+                			cin >> position;
+            		}
+			}
+		winner = game->get_winner();
+		cout<< winner <<" won the game!!! "<<"\n" ;
+		}
 		else
 		{
 			cout<<"Tie! No Winner!\n";
@@ -75,7 +97,7 @@ int main()
 		
 		cout<<"Play again? Enter Y or N: ";
 		cin>>user_choice;
-		while(user_choice != 'Y' && user_choice != 'y' && user_choice != 'N' && user_choice != 'n')
+	}while(user_choice != 'Y' && user_choice != 'y' && user_choice != 'N' && user_choice != 'n')
         {
             cout<<"Invalid choice! Type 'Y' to play again or 'N' to end program: ";
             cin>>user_choice;
