@@ -4,13 +4,12 @@
 #include "tic_tac_toe_3.h"
 #include "tic_tac_toe_4.h"
 #include <memory>
-using std :: unique_ptr;
-using std :: make_unique;
+using std::unique_ptr;
+using std::make_unique;
 
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
-
 TEST_CASE ("Test if the board is full")
 {
 	unique_ptr<TicTacToe> game = make_unique<tictactoe3>();
@@ -63,7 +62,7 @@ TEST_CASE("Test win by first column for tictactoe3")
 	game->mark_board(4); // X moved
 	game->mark_board(9); // O moved  
 	game->mark_board(7); // X moved
-	REQUIRE(game.game_over() == true);
+	REQUIRE(game->game_over() == true);
 }
 
 TEST_CASE("Test win by second row")
@@ -89,13 +88,18 @@ TEST_CASE("Test win by third row")
 {
 	unique_ptr<TicTacToe> game = make_unique<tictactoe3>();
 	game->start_game("X");
-	game->mark_board(7); 
-	game->mark_board(4);
-	game->mark_board(8);
-	game->mark_board(3); 
-	game->mark_board(9);  
+	game->mark_board(7); //x
+	REQUIRE(game->game_over() == false);
+	game->mark_board(4); // o
+	REQUIRE(game->game_over() == false);
+	game->mark_board(8); // x
+	REQUIRE(game->game_over() == false);
+	game->mark_board(3); // o
+	REQUIRE(game->game_over() == false);
+	game->mark_board(9); // x  
 
 	REQUIRE(game->game_over() == true);
+	REQUIRE(game->get_winner() == "X");
 }
 
 TEST_CASE("Test win diagonally from top left")
@@ -134,9 +138,6 @@ TEST_CASE("Test win diagonally from bottom top right")
 //tests tictactoe4
 
 /*Tests for TicTacToe4
-/
-/
-/
 */
 
 TEST_CASE("Test if the board is full for tictactoe4"){
@@ -150,7 +151,7 @@ TEST_CASE("Test if the board is full for tictactoe4"){
 	REQUIRE(game->game_over() ==  false);
 	game->mark_board(6);
 	REQUIRE(game->game_over() ==  false);
-	gam->mark_board(5);
+	game->mark_board(5);
 	REQUIRE(game->game_over() ==  false);
 	game->mark_board(10);
 	REQUIRE(game->game_over() ==  false);
@@ -176,7 +177,7 @@ TEST_CASE("Test if the board is full for tictactoe4"){
 
 	REQUIRE(game->game_over() == true);
 	REQUIRE(game->get_winner() == "C");
-
+}
 TEST_CASE("Test win by first column for tictactoe4")
 // 1	2	3	4
 // 5	6	7	8
@@ -250,12 +251,12 @@ TEST_CASE("Test win diagonally from top right")
 	REQUIRE(game->game_over() == true);
 }
 
-TEST_CASE("Test win diagonally from top left for tictactoe4")
+TEST_CASE("Test win diagonally from top left for tic tac toe4"){
 // 1	2	3	4
 // 5	6	7	8
 // 9	10	11	12
 // 13	14	15	16
-{
+
 	unique_ptr<TicTacToe> game = make_unique<tictactoe4>();
 	game->start_game("X");
 	game->mark_board(1); //x
