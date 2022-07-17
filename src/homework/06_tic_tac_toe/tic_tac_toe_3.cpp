@@ -5,7 +5,7 @@ tictactoe3 :: tictactoe3(): TicTacToe(3){
 
 }
 
-tictactoe3::check_column_win()
+bool tictactoe3::check_column_win()
 {
     if((pegs[0] == "X" && pegs[3] == "X" && pegs[6] == "X") || 
     (pegs[1] == "X" && pegs[4] == "X" && pegs[7] == "X") ||
@@ -19,7 +19,7 @@ tictactoe3::check_column_win()
     return false;
 }
 
-tictactoe3::check_row_win()
+bool tictactoe3::check_row_win()
 {   // Checks for row win in marked values 1,2,3 or 
    //4,5,6 or 7,8,9 with X's or O's
     if((pegs[0] == get_player() && pegs[1] == get_player() && pegs[2] == get_player()) || 
@@ -31,7 +31,7 @@ tictactoe3::check_row_win()
     return false;
 }
 
-tictactoe3::check_diagonal_win()
+bool tictactoe3::check_diagonal_win()
 {   // checks for diagonal win in marked values 
    //1,5,9 or 7,5,3 with all Xs or Os
     if((pegs[0] == "X" && pegs[4] == "X" && pegs[8] == "X") ||
