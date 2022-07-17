@@ -3,6 +3,9 @@
 #include "tic_tac_toe.h"
 #include "tic_tac_toe_3.h"
 #include "tic_tac_toe_4.h"
+#include <memory>
+using std :: unique_ptr;
+using std :: make_unique;
 
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
@@ -10,7 +13,7 @@ TEST_CASE("Verify Test Configuration", "verification") {
 
 TEST_CASE ("Test if the board is full")
 {
-	tictactoe3 game;
+	unique_ptr<TicTacToe> game = make_unique<tictactoe3>();
 	game.mark_board(1);
 	REQUIRE(game.game_over() == false);
 	game.mark_board(2);
@@ -35,7 +38,7 @@ TEST_CASE ("Test if the board is full")
 
 TEST_CASE ("Test first player set to X")
 {
-	tictactoe3 game;
+	unique_ptr<TicTacToe> game = make_unique<tictactoe3>();
 	game.start_game("X");
 	REQUIRE(game.get_player() == "X");
 	
@@ -43,7 +46,7 @@ TEST_CASE ("Test first player set to X")
 
 TEST_CASE("Test first player set to O")
 {
-	tictactoe3 game;
+	unique_ptr<TicTacToe> game = make_unique<tictactoe3>();
 	game.start_game("O");
 	REQUIRE(game.get_player() == "O");
 }
@@ -53,7 +56,7 @@ TEST_CASE("Test win by first column for tictactoe3")
 // 4	5	6
 // 7	8	9
 {
-	tictactoe3 game;
+	unique_ptr<TicTacToe> game = make_unique<tictactoe3>();
 	game.start_game("X");
 	game.mark_board(1); // X moved
 	game.mark_board(5); // O moved 
@@ -68,7 +71,7 @@ TEST_CASE("Test win by second row")
 // 4	5	6
 // 7	8	9
 {
-	tictactoe3 game;
+	unique_ptr<TicTacToe> game = make_unique<tictactoe3>();
 	game.start_game("X");
 	game.mark_board(4);
 	game.mark_board(2); 
@@ -84,7 +87,7 @@ TEST_CASE("Test win by third row")
 // 4	5	6
 // 7	8	9
 {
-	tictactoe3 game;
+	unique_ptr<TicTacToe> game = make_unique<tictactoe3>();
 	game.start_game("X");
 	game.mark_board(7); 
 	game.mark_board(4);
@@ -100,7 +103,7 @@ TEST_CASE("Test win diagonally from top left")
 // 4	5	6
 // 7	8	9
 {
-	tictactoe3 game;
+	unique_ptr<TicTacToe> game = make_unique<tictactoe3>();
 	game.start_game("X");
 	game.mark_board(1); 
 	game.mark_board(2);
@@ -116,7 +119,7 @@ TEST_CASE("Test win diagonally from bottom top right")
 // 4	5	6
 // 7	8	9
 {
-	tictactoe3 game;
+	unique_ptr<TicTacToe> game = make_unique<tictactoe3>();
 	game.start_game("X");
 	game.mark_board(3); 
 	game.mark_board(2);
@@ -137,8 +140,7 @@ TEST_CASE("Test win diagonally from bottom top right")
 */
 
 TEST_CASE("Test if the board is full for tictactoe4"){
-	TicTacToe4 game;
-	game.start_game("X");
+	unique_ptr<TicTacToe> game = make_unique<tictactoe4>();
 
 	game.mark_board(1);
 	REQUIRE(game.game_over() ==  false);
@@ -181,7 +183,7 @@ TEST_CASE("Test win by first column for tictactoe4")
 // 9	10	11	12
 // 13	14	15	16
 {
-	tictactoe4 game;
+	unique_ptr<TicTacToe> game = make_unique<tictactoe4>();
 	game.start_game("X");
 	game.mark_board(1);  // x 
 	game.mark_board(6);  // o
@@ -199,7 +201,7 @@ TEST_CASE("Test win by second row for tictactoe4")
 // 9	10	11	12
 // 13	14	15	16
 {
-	tictactoe4 game;
+	unique_ptr<TicTacToe> game = make_unique<tictactoe4>();
 	game.start_game("X");
 	game.mark_board(5); //x
 	game.mark_board(10); //o
@@ -217,7 +219,7 @@ TEST_CASE("Test win by fourth row for tictactoe4")
 // 9	10	11	12
 // 13	14	15	16
 {
-	tictactoe4 game;
+	unique_ptr<TicTacToe> game = make_unique<tictactoe4>();
 	game.start_game("X");
 	game.mark_board(13); //x
 	game.mark_board(7); //o
@@ -235,7 +237,7 @@ TEST_CASE("Test win diagonally from top right")
 // 9	10	11	12
 // 13	14	15	16
 {
-	tictactoe4 game;
+	unique_ptr<TicTacToe> game = make_unique<tictactoe4>();
 	game.start_game("X");
 	game.mark_board(4); //x
 	game.mark_board(16); //o
@@ -254,7 +256,7 @@ TEST_CASE("Test win diagonally from top left for tictactoe4")
 // 9	10	11	12
 // 13	14	15	16
 {
-	tictactoe4 game;
+	unique_ptr<TicTacToe> game = make_unique<tictactoe4>();
 	game.start_game("X");
 	game.mark_board(1); //x
 	game.mark_board(15); //o 
