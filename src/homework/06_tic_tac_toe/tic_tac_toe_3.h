@@ -1,5 +1,5 @@
 //h
-#include "TicTacToe.h"
+#include "tic_tac_toe.h"
 
 class tictactoe3 : public TicTacToe 
 {
